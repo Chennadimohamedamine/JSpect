@@ -1,0 +1,23 @@
+ai:
+  providers:
+    claude:
+      enabled: true
+      model: claude-3-5-sonnet-20241022
+      max_tokens: 4096
+    gemini:
+      enabled: true
+      model: gemini-2.0-flash-exp
+  
+detectors:
+  sensitivity: medium  # low, medium, high
+  custom_patterns: []
+  
+output:
+  format: cli  # cli, json, html, markdown
+  mask_secrets: true
+  show_context: true
+  
+scanning:
+  timeout: 30
+  max_file_size: 10485760  # 10MB
+  follow_redirects: true
