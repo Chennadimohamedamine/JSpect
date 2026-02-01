@@ -134,6 +134,10 @@ class JSpectCLI:
                         )
                 
                 progress.update(task, description="Complete!", completed=True)
+            
+            except Exception as e:
+                console.print(f"[red]Error during scan: {e}[/red]")
+                return
         
         # Filter results
         findings = self._filter_findings(findings, severity_filter, type_filter)

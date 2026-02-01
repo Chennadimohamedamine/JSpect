@@ -54,3 +54,7 @@ results/
 # OS
 .DS_Store
 Thumbs.db
+
+# Test files
+test_example.js
+test_*.js
