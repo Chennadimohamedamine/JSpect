@@ -1,22 +1,19 @@
-# 🔍 JSpect - AI-Powered JavaScript Secret Scanner
+# JSpect - AI-Powered JavaScript Secret Scanner
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+> **A comprehensive Python-based tool for analyzing JavaScript files to extract sensitive information (API keys, tokens, secrets, credentials) with AI-powered analysis using Claude and Gemini.**
 
-A comprehensive Python-based tool for analyzing JavaScript files to extract sensitive information (API keys, tokens, secrets, credentials) with AI-powered analysis using Claude and Gemini.
+##  Features
 
-## ✨ Features
+- **Fast JavaScript Analysis** - Scan from URLs, files, or direct code input
+- **AI-Powered Detection** - Uses Claude and Gemini for intelligent secret validation
+- **Pattern Recognition** - Detects 50+ types of secrets and credentials
+- **Deobfuscation** - Automatically decodes Base64, hex, and URL-encoded secrets
+- **Multiple Output Formats** - CLI, JSON, HTML, Markdown, and CSV
+- **Batch Processing** - Scan multiple URLs concurrently
+-  **Beautiful CLI** - Color-coded results with rich formatting
+- **Security First** - Never logs actual secret values
 
-- 🚀 **Fast JavaScript Analysis** - Scan from URLs, files, or direct code input
-- 🤖 **AI-Powered Detection** - Uses Claude and Gemini for intelligent secret validation
-- 🎯 **Pattern Recognition** - Detects 50+ types of secrets and credentials
-- 🔍 **Deobfuscation** - Automatically decodes Base64, hex, and URL-encoded secrets
-- 📊 **Multiple Output Formats** - CLI, JSON, HTML, Markdown, and CSV
-- ⚡ **Batch Processing** - Scan multiple URLs concurrently
-- 🎨 **Beautiful CLI** - Color-coded results with rich formatting
-- 🔒 **Security First** - Never logs actual secret values
-
-## 📦 Installation
+## Installation
 
 ### From Source
 
@@ -38,7 +35,7 @@ pip install -e .
 pip install jspect
 ```
 
-## 🔑 Configuration
+## Configuration
 
 ### 1. Set up API Keys
 
@@ -67,7 +64,7 @@ Edit `config.yaml` to customize:
 - Output formats
 - Scanning timeouts
 
-## 🚀 Usage
+## Usage
 
 ### Basic Scanning
 
@@ -138,7 +135,7 @@ Then scan all URLs:
 jspect scan -f urls.txt --ai claude
 ```
 
-## 🔎 Detected Secret Types
+## Detected Secret Types
 
 JSpect can detect 50+ types of secrets including:
 
@@ -173,17 +170,17 @@ JSpect can detect 50+ types of secrets including:
 - Private Keys (RSA, SSH, PGP)
 - Certificates
 
-## 📊 Example Output
+## Example Output
 
 ```
-🔍 JSpect - JavaScript Secret Scanner
+JSpect - JavaScript Secret Scanner
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📁 Scanning: https://example.com/app.js
-🤖 AI Analysis: Claude
+Scanning: https://example.com/app.js
+AI Analysis: Claude
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚨 CRITICAL - 2 finding(s)
+CRITICAL - 2 finding(s)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Type:         AWS Access Key ID
@@ -194,69 +191,15 @@ Confidence:   98% (AI Verified)
 Remediation:  Rotate immediately, use AWS IAM roles or AWS Secrets Manager
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Summary
+Summary
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Critical: 2 | High: 5 | Medium: 3 | Low: 1
 Total Secrets Found: 11
 AI Analysis: claude
 ```
 
-## 🎯 Use Cases
 
-### Bug Bounty Hunting
-Quickly discover exposed secrets in public JavaScript files:
-```bash
-jspect scan https://target.com/assets/*.js --ai claude --severity critical,high
-```
-
-### Security Audits
-Generate comprehensive reports for security assessments:
-```bash
-jspect scan -f production-urls.txt --ai both --format html -o audit-report.html
-```
-
-### CI/CD Integration
-Integrate into your pipeline to catch secrets before deployment:
-```bash
-jspect scan -f build/assets/*.js --format json -o secrets-report.json
-if [ $? -ne 0 ]; then exit 1; fi
-```
-
-### Development
-Scan your own code during development:
-```bash
-jspect scan -f src/**/*.js --ai claude
-```
-
-## 🤖 How AI Analysis Works
-
-1. **Pattern Detection**: Regex patterns identify potential secrets
-2. **Context Extraction**: Surrounding code is captured for analysis
-3. **AI Evaluation**: Claude/Gemini analyzes:
-   - Is this a real secret or false positive?
-   - What type of credential is it?
-   - What's the severity level?
-   - Is it production or test data?
-4. **Confidence Scoring**: AI provides confidence level (0-100%)
-5. **Remediation**: Specific steps to fix the issue
-
-### AI Prompt Example
-
-```
-Analyze this JavaScript code snippet for security issues:
-
-Code Context:
-const apiKey = "sk_test_abc123xyz789example";
-
-Tasks:
-1. Determine if this is a REAL secret or FALSE POSITIVE
-2. Assess severity (Critical/High/Medium/Low)
-3. Identify credential type
-4. Provide remediation recommendations
-5. Confidence score (0-100)
-```
-
-## ⚙️ Configuration
+## Configuration
 
 ### config.yaml
 
@@ -285,22 +228,7 @@ scanning:
   max_file_size: 10485760  # 10MB
   follow_redirects: true
 ```
-
-## 🧪 Testing
-
-Test your AI provider connections:
-
-```bash
-jspect test
-```
-
-Expected output:
-```
-✓ Claude: Connected
-✓ Gemini: Connected
-```
-
-## 📝 Best Practices
+## Best Practices
 
 ### For Security Researchers
 
@@ -318,7 +246,7 @@ Expected output:
 4. **Use secret managers** - AWS Secrets Manager, HashiCorp Vault, etc.
 5. **Regular audits** - Scan periodically even after initial cleanup
 
-## 🔒 Security & Privacy
+## Security & Privacy
 
 - ❌ Never logs actual secret values
 - ✅ API keys stored only in environment variables
@@ -327,7 +255,7 @@ Expected output:
 - ✅ No data sent to third parties except AI providers
 - ✅ AI responses are not stored by providers (as per their policies)
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -337,26 +265,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Anthropic](https://www.anthropic.com/) for Claude API
-- [Google](https://ai.google.dev/) for Gemini API
-- Security researchers and bug bounty hunters for inspiration
-
-## 📞 Support
-
-- 🐛 **Issues**: [GitHub Issues](https://github.com/Chennadimohamedamine/JSpect/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/Chennadimohamedamine/JSpect/discussions)
-
-## ⚠️ Disclaimer
+## Disclaimer
 
 This tool is for educational and authorized security testing purposes only. Always obtain proper authorization before scanning systems you don't own. The authors are not responsible for misuse of this tool.
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [ ] Add support for more AI providers (OpenAI GPT-4, etc.)
 - [ ] Implement Git repository scanning
@@ -366,7 +279,3 @@ This tool is for educational and authorized security testing purposes only. Alwa
 - [ ] Integration with popular security tools
 - [ ] Custom pattern management UI
 - [ ] Real-time monitoring mode
-
----
-
-Made with ❤️ by the JSpect Team | Star ⭐ if you find this useful!
